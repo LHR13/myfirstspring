@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-init-method="default_init" default-destroy-method="default_destroy">
+
+    <bean id="BeanLifeCycle" class="com.LHR13.beanLifeCycle.BeanLifeCycle" init-method="init_method" destroy-method="destroy_method"></bean>
+</beans>

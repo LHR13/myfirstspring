@@ -4,8 +4,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.io.Resource;
-
-import javax.annotation.Resources;
 import java.io.IOException;
 
 public class MyResources implements ApplicationContextAware {
@@ -18,12 +16,8 @@ public class MyResources implements ApplicationContextAware {
     }
 
     public void Resources() {
-        Resource resource = applicationContext.getResource("file:D:\\myfirstspring\\src\\main\\resources\\Lover");
+        Resource resource = applicationContext.getResource("Url:https://www.imooc.com/video/3758/0");
         System.out.println(resource.getFilename());
-        try {
-            System.out.println(resource.getFile());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println(resource.getDescription()); 
     }
 }

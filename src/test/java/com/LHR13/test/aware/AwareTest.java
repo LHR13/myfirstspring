@@ -14,6 +14,6 @@ public class AwareTest extends UnitTestBase {
 
     @Test
     public void test() {
-        System.out.println(super.getBean("myApplicationContext").hashCode());
+        //System.out.println(super.getBean("myApplicationContext").hashCode());
     }
 }

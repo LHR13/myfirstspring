@@ -15,7 +15,10 @@ public class TestDefBean extends UnitTestBase {
 
     @Test
     public void testSay() {
-        DefBean defBean = super.getBean("defBean");
-        defBean.say(" i love Taylor");
+        DefBean defBean = super.getBean("swift");
+        defBean.say(" i love Taylor" + defBean.hashCode());
+
+        DefBean defBean1 = super.getBean("swift");
+        defBean1.say("i love" + defBean1.hashCode());
     }
 }

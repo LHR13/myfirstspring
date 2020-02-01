@@ -28,7 +28,7 @@ public class UnitTestBase {
         } catch (BeansException e) {
             e.printStackTrace();
         }
-    }
+    } 
 
     @After
     public void after() {

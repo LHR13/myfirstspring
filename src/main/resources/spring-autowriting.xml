@@ -2,14 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--       default-autowire="byName">-->
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
 
 
-        <bean id="autoWritingService" class="com.LHR13.autowrit.AutoWritingService">
-            <property name="autoWritingDAO" ref="autoWritingDAO"></property>
-        </bean>
+<!--        <bean id="autoWritingService" class="com.LHR13.autowrit.AutoWritingService">-->
+<!--&lt;!&ndash;            <property name="autoWritingDAO" ref="autoWritingDAO"></property>&ndash;&gt;-->
+<!--        </bean>-->
 
-        <bean id="autoWritingDAO" class="com.LHR13.autowrit.AutoWritingDAO"></bean>
+<!--        <bean id="autoWritingDAO1" class="com.LHR13.autowrit.AutoWritingDAO"></bean>-->
 
 </beans>

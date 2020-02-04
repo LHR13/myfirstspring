@@ -1,6 +1,6 @@
 package com.LHR13.test.multibean;
 
-import com.LHR13.multibean.BeanInvoker;
+import com.LHR13.beanannotation.multibean.BeanInvoker;
 import com.LHR13.test.base.UnitTestBase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,7 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 public class TestMultibean extends UnitTestBase {
 
     public TestMultibean() {
-        super("classpath:src/main/resources/spring-autowriting.xml");
+        super("classpath:spring-beanannotation.xml");
     }
 
     @Test

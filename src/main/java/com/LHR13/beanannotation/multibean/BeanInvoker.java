@@ -1,6 +1,8 @@
-package com.LHR13.multibean;
+package com.LHR13.beanannotation.multibean;
 
+import com.LHR13.beanannotation.injection.service.InjectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,6 +16,10 @@ public class BeanInvoker {
 
     @Autowired
     private Map<String, BeanInterFace> map;
+
+    @Autowired
+    @Qualifier("beanInterFaceImpNumTwo")
+    private BeanInterFace beanInterFace;
 
     public void sayByList() {
         if (null != list && list.size() != 0) {
@@ -30,10 +36,11 @@ public class BeanInvoker {
         if (null != map && map.size() != 0) {
             System.out.println("SayByMap...");
             for (Map.Entry<String, BeanInterFace> entry : map.entrySet()) {
-                System.out.println("[" + entry.getKey() + ", " + entry.getValue().getClass().getName());
+                System.out.println("[" + entry.getKey() + ", " + entry.getValue().getClass().getName() + "] ");
             }
         }else {
             System.out.println("this is a null Map or an empty Map");
         }
+        System.out.println(beanInterFace.getClass().getName());
     }
 }

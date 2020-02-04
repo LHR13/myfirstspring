@@ -1,4 +1,4 @@
-package com.LHR13.multibean;
+package com.LHR13.beanannotation.multibean;
 
 import org.springframework.stereotype.Component;
 

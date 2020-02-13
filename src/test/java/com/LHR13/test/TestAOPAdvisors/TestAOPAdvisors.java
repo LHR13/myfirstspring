@@ -5,6 +5,7 @@ import com.LHR13.test.base.UnitTestBase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
+import org.springframework.dao.PessimisticLockingFailureException;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestAOPAdvisors extends UnitTestBase {
@@ -19,6 +20,10 @@ public class TestAOPAdvisors extends UnitTestBase {
         service.invoke();
 
         System.out.println();
-        service.invokeException();
+        try {
+            service.invokeException();
+        }catch (PessimisticLockingFailureException e) {
+            System.out.println("error");
+        }
     }
 }

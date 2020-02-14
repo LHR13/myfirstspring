@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean id="MyAfterReturningAdvice" class="com.LHR13.aop.api.MyAfterReturningAdvice"></bean>
 
     <bean id="MyBeforeAdvice" class="com.LHR13.aop.api.MyBeforeAdvice"></bean>
@@ -12,22 +13,32 @@
 
     <bean id="bizLogicImplTarget" class="com.LHR13.aop.api.BizLogicImpl"></bean>
 
-    <bean id="baseProxyBean" class="org.springframework.aop.framework.ProxyFactoryBean" lazy-init="true" abstract="true"></bean>
-
-    <bean id="bizLogicImpl" parent="baseProxyBean">
-        <property name="target">
-            <bean class="com.LHR13.aop.api.BizLogicImpl"></bean>
+    <bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedNames">
+            <list>
+                <value>sa*</value>
+            </list>
         </property>
-        <property name="proxyInterfaces">
-            <value>com.LHR13.aop.api.BizLogic</value>
+    </bean>
+
+    <bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="MyBeforeAdvice"/>
+        <property name="pointcut" ref="pointcutBean"/>
+    </bean>
+
+    <bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <ref bean="bizLogicImplTarget"/>
         </property>
         <property name="interceptorNames">
             <list>
-                <value>MyBeforeAdvice</value>
+                <value>defaultAdvisor</value>
                 <value>MyAfterReturningAdvice</value>
                 <value>MyMethodInterception</value>
                 <value>MyThrowsAdvice</value>
             </list>
         </property>
     </bean>
+
+
 </beans>

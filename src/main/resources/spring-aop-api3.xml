@@ -12,14 +12,12 @@
 
     <bean id="bizLogicImplTarget" class="com.LHR13.aop.api.BizLogicImpl"></bean>
 
-    <bean id="baseProxyBean" class="org.springframework.aop.framework.ProxyFactoryBean" lazy-init="true" abstract="true"></bean>
-
-    <bean id="bizLogicImpl" parent="baseProxyBean">
-        <property name="target">
-            <bean class="com.LHR13.aop.api.BizLogicImpl"></bean>
-        </property>
+    <bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces">
             <value>com.LHR13.aop.api.BizLogic</value>
+        </property>
+        <property name="target">
+            <ref bean="bizLogicImplTarget"/>
         </property>
         <property name="interceptorNames">
             <list>
